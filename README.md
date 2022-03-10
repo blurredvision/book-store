@@ -32,7 +32,7 @@ Credentials for the 3 users:
 
 Client:
 ```bash
-name = Sam
+name = Alex
 password = 12345
 ```
 
