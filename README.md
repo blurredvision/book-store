@@ -32,18 +32,18 @@ Credentials for the 3 users:
 
 Client:
 ```bash
-    name = Sam
-    password = 12345
+name = Sam
+password = 12345
 ```
 
 Employee:
 ```bash
-    name = Jeremy
-    password = 12345
+name = Jeremy
+password = 12345
 ```
 
 Admin:
 ```bash
-    name = Max
-    password = 12345
+name = Max
+password = 12345
 ```
