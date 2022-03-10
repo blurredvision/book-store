@@ -4,7 +4,15 @@ import React from 'react';
 import Link from 'next/link'
 
 function EmployeeBookList({data, users}) {
-  //A function that outputs all of the users in the database except the current users
+    //Converts the timestamp to a readable string
+    const convertDate = (timeStamp) =>{
+      var requestDate = new Date(timeStamp)
+      return (
+        requestDate.toLocaleDateString("en-US")
+      )
+    }
+  
+    //A function that outputs all of the users in the database except the current users
     const getName = (id) =>{
         for(let i in users.data){
             if(users.data[i]._id == id){
@@ -83,6 +91,7 @@ function EmployeeBookList({data, users}) {
               <th className='px-8 py-2 items-center truncate'>Released Year</th>
               <th className='px-8 py-2 items-center'>Author</th>
               <th className='px-8 py-2 items-center'>Price</th>
+              <th className='px-8 py-2 items-center'>Request Date</th>
               <th className='px-10 py-2 items-center'>Status</th>
               <th className='px-8 py-2 items-center'></th>
             </tr>
@@ -96,6 +105,7 @@ function EmployeeBookList({data, users}) {
             <td className='px-5 py-2 text-center'>{book.releaseYear}</td>
             <td className='px-5 py-2 text-center'>{book.author}</td>
             <td className='px-5 py-2 text-center'>£{book.price}</td>
+            <td className='px-5 py-2 text-center'>{convertDate(book.createdAt)}</td>
             {createBadge(book.bookStatus, book._id)}
             </tr>
             ))}

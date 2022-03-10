@@ -4,6 +4,14 @@ import React from 'react';
 import Link from 'next/link'
 
 function BookList({data}) {
+    //Converts the timestamp to a readable string
+    const convertDate = (timeStamp) =>{
+      var requestDate = new Date(timeStamp)
+      return (
+        requestDate.toLocaleDateString("en-US")
+      )
+    }
+
     //Creates badges for the book status on the table
     const createBadge = (badgeName, id) =>{
       if(badgeName == "Waiting"){
@@ -86,7 +94,7 @@ function BookList({data}) {
             <td className='px-5 py-2 text-center'>{book.releaseYear}</td>
             <td className='px-5 py-2 text-center'>{book.author}</td>
             <td className='px-5 py-2 text-center'>£{book.price}</td>
-            <td className='px-5 py-2 text-center'>{book.createdAt}</td>
+            <td className='px-5 py-2 text-center'>{convertDate(book.createdAt)}</td>
             {createBadge(book.bookStatus, book._id)}
             </tr>
             ))}
